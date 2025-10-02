@@ -1,30 +1,28 @@
-"""
-Problem 3: Number Analysis
-Analyze a list of numbers provided by the user.
-"""
+
 
 def get_numbers_from_user():
-    """
-    Get numbers from user until they type 'done'.
-    Return a list of numbers.
-
-    Returns:
-        list: List of numbers entered by user
-    """
+    
+   
     numbers = []
 
     while True:
-        # TODO: Get input from user
-        # TODO: Check if user typed 'done'
-        # TODO: Try to convert to float and add to list
-        # TODO: Handle invalid input gracefully
-        pass
+        text=input("give a number or type done")
+        if text == "done":
+            break
+        if text.replace(".","",1).isdigit():
+            numbers.append(float(text))
+       
+        else : 
+            print("invalid input")
+            
 
+    print(numbers)
     return numbers
+get_numbers_from_user()
 
 
 def analyze_numbers(numbers):
-    """
+    
     Analyze the list and return a dictionary with:
     - count: number of elements
     - sum: sum of all numbers
