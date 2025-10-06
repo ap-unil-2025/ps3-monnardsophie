@@ -18,62 +18,51 @@ def get_numbers_from_user():
 
     print(numbers)
     return numbers
-get_numbers_from_user()
+
 
 
 def analyze_numbers(numbers):
-    
-    Analyze the list and return a dictionary with:
-    - count: number of elements
-    - sum: sum of all numbers
-    - average: average value
-    - minimum: smallest number
-    - maximum: largest number
-    - even_count: count of even numbers
-    - odd_count: count of odd numbers
-
-    Args:
-        numbers (list): List of numbers to analyze
-
-    Returns:
-        dict: Dictionary with analysis results, or None if list is empty
-    """
-    if not numbers:
-        return None
-
     analysis = {}
+   
+    count_nb = len(numbers)
+    sum_nb = sum(numbers)
+    average_nb = sum(numbers)/len(numbers)
+    minimum_nb = min(numbers)
+    maximum_nb = max(numbers)
+    list_even = []
+    for i in numbers :
+        if i % 2 == 0 :
+            list_even.append(i)
+        
+    even_count = len(list_even)
+    odd_count = count_nb - even_count
 
-    # TODO: Calculate count
-    # TODO: Calculate sum
-    # TODO: Calculate average
-    # TODO: Find minimum
-    # TODO: Find maximum
-    # TODO: Count even numbers (hint: use modulo operator)
-    # TODO: Count odd numbers
+    analysis = { "count": count_nb, "sum": sum_nb, "average": average_nb, 
+    "minimum": minimum_nb, "maximum": maximum_nb, "even_count": even_count,
+    "odd_count": odd_count}
 
     return analysis
+   
+    if not numbers:
+        return None  
+   
+
+
+
 
 
 def display_analysis(analysis):
-    """
-    Display the analysis in a formatted way.
 
-    Args:
-        analysis (dict): Dictionary containing analysis results
-    """
     if not analysis:
-        return
+        return None
 
     print("\nAnalysis Results:")
     print("-" * 20)
+    for key, value in analysis.items():
+        print((f"{key}:{value}"))
+        
 
-    # TODO: Display all analysis results in a nice format
-    # Example:
-    # Count: 5
-    # Sum: 25
-    # Average: 5.00
-    # etc.
-    pass
+
 
 
 def main():
