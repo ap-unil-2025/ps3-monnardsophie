@@ -1,25 +1,20 @@
-
-
-
 def celsius_to_fahrenheit(celsius):
-    fahrenheit = float((celsius)*(9/5)+32)
+    fahrenheit = (float(celsius)*9/5)+32
+
     return fahrenheit
 
 
 def fahrenheit_to_celsius(fahrenheit):
-    celsius = float(((fahrenheit)-32)*(5/9))
+    celsius = (float(fahrenheit)-32)*5/9
     return celsius
 
-
 def temperature_converter():
-    temperature = input("what is the temperature?")
-    unit = input("what is the unit?C or F?")
+    temperature = float(input("Temperature"))
+    unit = input("unit (C or F)")
     if unit == "C":
-        return(celsius_to_fahrenheit(temperature))
+        print(celsius_to_fahrenheit(temperature))
     else :
-        return(fahrenheit_to_celsius(temperature))
-  
-
+        print(fahrenheit_to_celsius(temperature))
 
 # Test cases (DO NOT MODIFY)
 if __name__ == "__main__":
