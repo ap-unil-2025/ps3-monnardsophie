@@ -1,67 +1,60 @@
-
-
 def get_numbers_from_user():
-    
-   
     numbers = []
+    x = 1
+    while x == 1:
+        a=input("Type a number")       
 
-    while True:
-        text=input("give a number or type done")
-        if text == "done":
-            break
-        if text.replace(".","",1).isdigit():
-            numbers.append(float(text))
-       
-        else : 
-            print("invalid input")
+        if a == "done":
+
+            x = x-1
+        else :
+            try : 
+                a_float = float(a)
+                numbers.append(a_float)
+
+            except ValueError :
+                print("Please enter a valid number")
+
+            x=1
             
-
-    print(numbers)
     return numbers
-
-
+   
 
 def analyze_numbers(numbers):
-    analysis = {}
-   
-    count_nb = len(numbers)
-    sum_nb = sum(numbers)
-    average_nb = sum(numbers)/len(numbers)
-    minimum_nb = min(numbers)
-    maximum_nb = max(numbers)
-    list_even = []
-    for i in numbers :
-        if i % 2 == 0 :
+
+    if not numbers :
+        return None 
+
+    count = len(numbers)
+    sum_var = sum(numbers)
+    average_var = sum_var/count 
+    min_var = min(numbers) 
+    max_var = max(numbers) 
+    list_even =[]
+    for i in numbers : 
+        if i%2 == 0 :
             list_even.append(i)
-        
     even_count = len(list_even)
-    odd_count = count_nb - even_count
+    odd_count = count - even_count
 
-    analysis = { "count": count_nb, "sum": sum_nb, "average": average_nb, 
-    "minimum": minimum_nb, "maximum": maximum_nb, "even_count": even_count,
-    "odd_count": odd_count}
-
+    analysis = {"count":count, "sum":sum_var, "average":average_var, 
+        "minimum": min_var, "maximum": max_var, "even count":even_count, 
+        "odd count" : odd_count
+        }
     return analysis
-   
-    if not numbers:
-        return None  
-   
-
-
-
-
+  
 
 def display_analysis(analysis):
+    
 
+   
     if not analysis:
         return None
 
     print("\nAnalysis Results:")
     print("-" * 20)
     for key, value in analysis.items():
-        print((f"{key}:{value}"))
-        
-
+        print((f"{key}: {value}"))
 
 
 
